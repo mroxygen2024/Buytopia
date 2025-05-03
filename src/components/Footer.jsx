@@ -1,0 +1,10 @@
+// src/components/Footer.jsx
+export default function Footer() {
+  return (
+    <footer className="bg-gray-100 mt-10 py-4">
+      <div className="container mx-auto text-center text-sm text-gray-600">
+        &copy; {new Date().getFullYear()} MyShop. All rights reserved.
+      </div>
+    </footer>
+  );
+}
