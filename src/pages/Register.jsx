@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-// import { fetchData } from '../services/api';
 
 const Register = () => {
   const [form, setForm] = useState({
@@ -9,8 +8,9 @@ const Register = () => {
     email: '',
     password: ''
   });
-  
+
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -21,14 +21,42 @@ const Register = () => {
     e.preventDefault();
     setError('');
 
+    if (!form.firstName || !form.lastName || !form.email || !form.password) {
+      setError('Please fill in all fields.');
+      return;
+    }
+
     try {
-      await fetchData('/auth/register', {
+      setLoading(true);
+
+      const response = await fetch("https://ecommerce-backend-tqgh.onrender.com/api/v1/auth/register", {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(form),
       });
-      navigate('/login');
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Registration failed');
+      }
+
+      // Save user and tokens to localStorage
+      const user = data.data.user;
+      const accessToken = data.data.accessToken;
+      const refreshToken = data.data.refreshToken;
+
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
+      localStorage.setItem("user", JSON.stringify(user));
+
+      navigate('/products');
     } catch (err) {
       setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -73,8 +101,12 @@ const Register = () => {
           required
         />
 
-        <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded">
-          Register
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white py-2 rounded disabled:opacity-50"
+          disabled={loading}
+        >
+          {loading ? 'Registering...' : 'Register'}
         </button>
       </form>
 

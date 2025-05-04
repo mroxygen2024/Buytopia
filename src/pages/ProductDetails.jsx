@@ -2,15 +2,17 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import products from "../data/products";
 import { ShoppingBag } from "lucide-react"; 
+import { useCart } from "../contexts/CartContext";
 
 const ProductDetails = () => {
+  const { addToCart } = useCart();
   const { slug } = useParams();
   const navigate = useNavigate();
 
   const product = products.find((p) => p.slug === slug);
 
-  console.log("Slug:", slug);
-  console.log("Matched product:", product);
+  // console.log("Slug:", slug);
+  // console.log("Matched product:", product);
   
   if (!product) {
     return <div className="p-6">Product not found.</div>;
@@ -20,6 +22,11 @@ const ProductDetails = () => {
     if (stock === 0) return "Out of Stock";
     if (stock < 10) return "Low Stock";
     return "In Stock";
+  };
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    alert("Added to cart!");
   };
 
   return (
@@ -55,6 +62,12 @@ const ProductDetails = () => {
           </p>
         </div>
       </div>
+      <button
+        onClick={handleAddToCart}
+        className="mt-4 px-4 py-2 bg-green-600 text-white rounded"
+      >
+        Add to Cart
+      </button>
     </div>
   );
 };

@@ -1,25 +1,55 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { fetchData } from '../services/api';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+  });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
 
+    // Simple validation
+    if (!form.email || !form.password) {
+      setError('Please fill in both fields.');
+      return;
+    }
+
     try {
-      await fetchData('/auth/login', {
+      setLoading(true);
+
+      const response = await fetch("https://ecommerce-backend-tqgh.onrender.com/api/v1/auth/login", {
         method: 'POST',
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(form),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
+
+      const user = data.data.user;
+      const accessToken = data.data.accessToken;
+      const refreshToken = data.data.refreshToken;
+
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
+      localStorage.setItem("user", JSON.stringify(user));
+
       navigate('/products');
     } catch (err) {
       setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -33,8 +63,8 @@ const Login = () => {
           type="email"
           placeholder="Email"
           className="w-full border p-2 rounded"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
           required
         />
 
@@ -42,13 +72,17 @@ const Login = () => {
           type="password"
           placeholder="Password"
           className="w-full border p-2 rounded"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={form.password}
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
           required
         />
 
-        <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded">
-          Login
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white py-2 rounded disabled:opacity-50"
+          disabled={loading}
+        >
+          {loading ? 'Logging in...' : 'Login'}
         </button>
       </form>
 

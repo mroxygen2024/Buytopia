@@ -2,8 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button} from "../components/ui/button"; 
 import { ShoppingBag } from "lucide-react"; 
+import { useCart } from '../contexts/CartContext';
+
 
 const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -24,7 +27,7 @@ const ProductCard = ({ product }) => {
         <div className="p-4">
           <h2 className="text-lg font-semibold">{product.name}</h2>
           <p className="text-sm text-gray-600">{product.category.name}</p>
-          <p className="text-blue-600 font-medium mt-1">ETB ${parseFloat(product.price).toFixed(2)}</p>
+          <p className="text-blue-600 font-medium mt-1">ETB {parseFloat(product.price).toFixed(2)}</p>
 
           {product.stock === 0 ? (
             <p className="text-red-500 text-sm font-bold mt-1">Out of Stock</p>
@@ -36,7 +39,7 @@ const ProductCard = ({ product }) => {
         </div>
         </div>
 
-      <Button className="w-full mt-2">
+      <Button className="w-full mt-2" onClick={() => addToCart(product)}>
         <ShoppingBag className="mr-2" />
         Add to Cart
       </Button>
