@@ -1,39 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import ProductCard from '../components/ProductCard';
+import React from "react";
+import ProductCard from "@/components/ProductCard";
+import { products } from "@/data/productsData";
 
-const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/products`)
-      .then(res => res.json())
-      .then(data => {
-        setProducts(data.products);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Error fetching products:', err);
-        setError('Failed to load products.');
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return <div className="text-center mt-10">Loading...</div>;
-  if (error) return <div className="text-center mt-10 text-red-500">{error}</div>;
-
+export default function Products() {
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">All Products</h2>
-      
+    <main className="p-6 bg-[#E7CBAA] min-h-screen">
+      <h1 className="text-3xl font-bold mb-6 text-[#79443B]">All Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map(product => (
-          <ProductCard key={product._id} product={product} />
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
-    </div>
+    </main>
   );
-};
-
-export default Products;
+}

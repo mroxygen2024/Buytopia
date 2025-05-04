@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import banner1 from '../assets/banner_img_01.jpg';
-import banner2 from '../assets/banner_img_02.jpg';
-import banner3 from '../assets/banner_img_03.jpg';
+import banner1 from '../assets/electronics1.png';
+import banner2 from '../assets/bag1.png';
+import banner3 from '../assets/shoes1.png';
 
 const slides = [
   {
@@ -41,7 +41,7 @@ export default function HeroCarousel() {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden bg-white">
+    <div className="relative w-full overflow-hidden bg-[#E7CBAA]">
       {/* Slide Container */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
@@ -57,12 +57,12 @@ export default function HeroCarousel() {
           >
             {/* Text Section */}
             <div className="w-full lg:w-1/2 flex flex-col justify-center h-full pr-0 lg:pr-10">
-              <h1 className="text-3xl md:text-5xl font-bold text-green-800 mb-4">{slide.title}</h1>
-              <h3 className="text-xl md:text-2xl text-gray-700 mb-4">{slide.subtitle}</h3>
-              <p className="text-gray-600 mb-6">{slide.text}</p>
+              <h1 className="text-3xl md:text-5xl font-bold text-[#79443B] mb-4">{slide.title}</h1>
+              <h3 className="text-xl md:text-2xl text-[#79443B] mb-4">{slide.subtitle}</h3>
+              <p className="text-[#5a4d48] mb-6">{slide.text}</p>
               <a
                 href="/products"
-                className="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition w-fit"
+                className="bg-[#79443B] text-white px-6 py-3 rounded-full hover:bg-[#5e332c] transition w-fit"
               >
                 Browse Products
               </a>
@@ -83,13 +83,13 @@ export default function HeroCarousel() {
       {/* Controls */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 text-3xl text-gray-600 hover:text-green-600 z-10"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 text-3xl text-[#79443B] hover:text-[#5e332c] z-10"
       >
         ❮
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 text-3xl text-gray-600 hover:text-green-600 z-10"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 text-3xl text-[#79443B] hover:text-[#5e332c] z-10"
       >
         ❯
       </button>
@@ -101,7 +101,7 @@ export default function HeroCarousel() {
             key={idx}
             onClick={() => goToSlide(idx)}
             className={`w-3 h-3 rounded-full transition ${
-              idx === current ? 'bg-green-600' : 'bg-gray-300'
+              idx === current ? 'bg-[#79443B]' : 'bg-[#d2b7a0]'
             }`}
           />
         ))}
