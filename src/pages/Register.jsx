@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { fetchData } from '../services/api';
+// import { fetchData } from '../services/api';
 
 const Register = () => {
   const [form, setForm] = useState({
