@@ -21,7 +21,10 @@ export default function Header() {
   }, []);
 
   const handleLogout = () => {
-    localStorage.clear();
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("user");
+
     setUser(null);
     setShowMenu(false);
     navigate("/login");
@@ -71,22 +74,20 @@ export default function Header() {
 
             {showMenu && (
               <div className="absolute right-0 mt-2 w-48 bg-white border shadow-md rounded p-2 z-50">
-                {user ? (
-                  <>
-                    <p className="px-4 py-2 text-gray-700">Hello, {user.firstName}</p>
-                    <button
-                      onClick={handleLogout}
-                      className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600"
-                    >
-                      Logout
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <Link to="/login" className="block px-4 py-2 hover:bg-black hover:text-primary-foreground">Login</Link>
-                    <Link to="/register" className="block px-4 py-2 hover:bg-black hover:text-primary-foreground">Register</Link>
-                  </>
-                )}
+             {user ? (
+                <>
+                  <p className="px-4 py-2 text-gray-700">Hello, {user.firstName || "User"}</p>
+                  <button onClick={handleLogout} className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600">
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" className="block px-4 py-2 hover:bg-black hover:text-primary-foreground">Login</Link>
+                  <Link to="/register" className="block px-4 py-2 hover:bg-black hover:text-primary-foreground">Register</Link>
+                </>
+              )}
+
               </div>
             )}
           </div>
