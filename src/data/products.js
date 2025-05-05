@@ -30,7 +30,7 @@ const products = [
       images: [
         "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?q=80&w=1000&auto=format&fit=crop",
       ],
-      stock: 120,
+      stock: 0,
       categoryId: "0bde41c3-a47a-4483-8f2e-85ecdf588428",
       createdAt: "2025-05-01T14:10:17.975Z",
       updatedAt: "2025-05-01T14:10:17.975Z",
@@ -50,7 +50,7 @@ const products = [
       description: "Adjustable phone mount for dashboard or windshield.",
       price: "19.99",
       images: [
-        "https://images.unsplash.com/photo-1617886322168-72b886573c3c?q=80&w=1000&auto=format&fit=crop",
+        "https://media.istockphoto.com/id/2207912298/photo/young-woman-with-a-phone-enjoying-the-mountain-landscape-while-sitting-in-the-trunk-of-a-car.jpg?s=1024x1024&w=is&k=20&c=8dSrQFPgcgZdShfJtympQZNd4XwSv_cDq28Qap5WdiI=",
       ],
       stock: 100,
       categoryId: "0bde41c3-a47a-4483-8f2e-85ecdf588428",
@@ -72,9 +72,9 @@ const products = [
       description: "Portable vacuum cleaner for car interiors.",
       price: "39.99",
       images: [
-        "https://images.unsplash.com/photo-1616093875201-d6bf4d8e3fb6?q=80&w=1000&auto=format&fit=crop",
+        "https://media.istockphoto.com/id/821775774/photo/car-vacuuming.webp?a=1&b=1&s=612x612&w=0&k=20&c=AmVYauoWCAR5ksrvPXrsgm2hPj58qb7Zq6SjprqTMpM=",
       ],
-      stock: 60,
+      stock: 2,
       categoryId: "0bde41c3-a47a-4483-8f2e-85ecdf588428",
       createdAt: "2025-05-01T14:10:15.312Z",
       updatedAt: "2025-05-01T14:10:15.312Z",
@@ -94,7 +94,7 @@ const products = [
       description: "1000-piece jigsaw puzzle with scenic landscape.",
       price: "19.99",
       images: [
-        "https://images.unsplash.com/photo-1586163179753-7fc3b24d0c46?q=80&w=1000&auto=format&fit=crop",
+        "https://plus.unsplash.com/premium_photo-1723662084148-2cd2357705ba?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHV6emxlfGVufDB8fDB8fHww",
       ],
       stock: 90,
       categoryId: "b61abe0f-35ff-40e0-af1e-ed3ebe6c59b5",
@@ -118,7 +118,7 @@ const products = [
       images: [
         "https://images.unsplash.com/photo-1587654780291-39c9404d746b?q=80&w=1000&auto=format&fit=crop",
       ],
-      stock: 70,
+      stock: 2,
       categoryId: "b61abe0f-35ff-40e0-af1e-ed3ebe6c59b5",
       createdAt: "2025-05-01T14:10:12.647Z",
       updatedAt: "2025-05-01T14:10:12.647Z",
@@ -163,7 +163,7 @@ const products = [
     images: [
       "https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?q=80&w=1000&auto=format&fit=crop",
     ],
-    stock: 85,
+    stock: 0,
     categoryId: "b61abe0f-35ff-40e0-af1e-ed3ebe6c59b5",
     createdAt: "2025-05-01T14:10:09.986Z",
     updatedAt: "2025-05-01T14:10:09.986Z",
@@ -221,6 +221,50 @@ const products = [
       slug: "sports-and-outdoors",
     },
   },
+  {
+    id: "c3f1e2aa-0bfc-4722-bb1e-123456789abc",
+    name: "Camping Tent",
+    slug: "camping-tent",
+    description: "Waterproof camping tent for 2-3 people with easy setup.",
+    price: "89.99",
+    images: [
+      "https://media.istockphoto.com/id/142533334/photo/yellow-dome-tent-with-open-zip-enclosure.webp?a=1&b=1&s=612x612&w=0&k=20&c=6i0FJkCQEDz2T-ex8kxYQXhiOjuuJNe1kwYjePIidqo=",
+    ],
+    stock: 40,
+    categoryId: "bae0b40b-61f5-4110-a57b-f3de1c788c3b", 
+    createdAt: "2025-05-05T08:30:00.000Z",
+    updatedAt: "2025-05-05T08:30:00.000Z",
+    lowStockAlert: 5,
+    avgRating: null,
+    ratingCount: 0,
+    category: {
+      id: "bae0b40b-61f5-4110-a57b-f3de1c788c3b",
+      name: "Sports & Outdoors",
+      slug: "sports-and-outdoors",
+    },
+  },
+  {
+    id: "f6e7d13a-44aa-49c3-8129-abcdef123456",
+    name: "Action Figure Set",
+    slug: "action-figure-set",
+    description: "Set of 5 collectible superhero action figures.",
+    price: "29.99",
+    images: [
+      "https://media.istockphoto.com/id/2198778654/photo/vintage-pioneer-toys.webp?a=1&b=1&s=612x612&w=0&k=20&c=mqI_eEupKGUvWgV_1q_ScVeBKlZxS6_n8y7pZxHCZYQ=",
+    ],
+    stock: 75,
+    categoryId: "b61abe0f-35ff-40e0-af1e-ed3ebe6c59b5", 
+    createdAt: "2025-05-05T08:45:00.000Z",
+    updatedAt: "2025-05-05T08:45:00.000Z",
+    lowStockAlert: 5,
+    avgRating: null,
+    ratingCount: 0,
+    category: {
+      id: "b61abe0f-35ff-40e0-af1e-ed3ebe6c59b5",
+      name: "Toys & Games",
+      slug: "toys-and-games",
+    },
+  },  
 ];
 export default products;
 

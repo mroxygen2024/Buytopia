@@ -19,7 +19,7 @@ const CartPage = () => {
               <div>
                 <h2 className="text-lg font-semibold">{item.name}</h2>
                 <p>Quantity: {item.quantity}</p>
-                <p>Price: ETB ${item.price}</p>
+                <p>Price: ETB {item.price}</p>
               </div>
               <button
                 className="text-red-500 hover:underline"
@@ -32,7 +32,7 @@ const CartPage = () => {
         </div>
       )}
 
-      <Link to="/products" className="text-blue-600 underline block mt-6">
+      <Link to="/products" className="bg-primary text-primary-foreground underline inline-block mt-6">
         ← Continue Shopping
       </Link>
     </div>
