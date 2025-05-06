@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Register = () => {
   const [form, setForm] = useState({
@@ -8,8 +9,7 @@ const Register = () => {
     email: '',
     password: ''
   });
-
-  const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -19,15 +19,14 @@ const Register = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    setError('');
 
     if (!form.firstName || !form.lastName || !form.email || !form.password) {
-      setError('Please fill in all fields.');
+      toast.error('Please fill in all fields.');
       return;
     }
 
-    if (form.password.length < 8) {
-      setError("Password must be at least 8 characters");
+    if (form.password.length < 5) {
+      toast.error("Password must be at least 5 characters");
       return;
     }
 
@@ -36,30 +35,22 @@ const Register = () => {
 
       const response = await fetch("https://ecommerce-backend-tqgh.onrender.com/api/v1/auth/register", {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
 
       const data = await response.json();
+      if (!response.ok) throw new Error(data.message || 'Registration failed');
 
-      if (!response.ok) {
-        throw new Error(data.message || 'Registration failed');
-      }
-
-      // Save user and tokens to localStorage
-      const user = data.data.user;
-      const accessToken = data.data.accessToken;
-      const refreshToken = data.data.refreshToken;
-
+      const { user, accessToken, refreshToken } = data.data;
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
       localStorage.setItem("user", JSON.stringify(user));
 
+      toast.success("Registration successful!");
       navigate('/products');
     } catch (err) {
-      setError(err.message);
+      toast.error(err.message);
     } finally {
       setLoading(false);
     }
@@ -68,7 +59,6 @@ const Register = () => {
   return (
     <div className="max-w-md mx-auto px-4 py-8">
       <h2 className="text-2xl font-bold mb-4">Register</h2>
-      {error && <p className="text-red-500 mb-2">{error}</p>}
 
       <form onSubmit={handleRegister} className="space-y-4">
         <input
@@ -96,19 +86,27 @@ const Register = () => {
           onChange={handleChange}
           required
         />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          className="w-full border p-2 rounded"
-          value={form.password}
-          onChange={handleChange}
-          required
-        />
+        <div className="relative">
+          <input
+            name="password"
+            type={showPassword ? 'text' : 'password'}
+            placeholder="Password"
+            className="w-full border p-2 rounded"
+            value={form.password}
+            onChange={handleChange}
+            required
+          />
+          <span
+            className="absolute right-3 top-2 cursor-pointer text-sm text-blue-600"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? 'Hide' : 'Show'}
+          </span>
+        </div>
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded disabled:opacity-50"
+          className="w-full bg-black text-white py-2 rounded disabled:opacity-50"
           disabled={loading}
         >
           {loading ? 'Registering...' : 'Register'}

@@ -1,8 +1,10 @@
+// src/components/ProductCard.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "../components/ui/button"; 
-import { ShoppingBag } from "lucide-react"; 
-import { useCart } from '../contexts/CartContext';
+import { Button } from "./ui/button";
+import { ShoppingBag } from "lucide-react";
+import { useCart } from "../contexts/CartContext";
+import { toast } from "react-toastify";
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
@@ -13,37 +15,31 @@ const ProductCard = ({ product }) => {
   };
 
   const handleAddToCart = () => {
-    // Check if user is logged in
-    const user = localStorage.getItem("user");
-
+    const user = localStorage.getItem("user"); // ✅ Only add to cart if logged in
     if (!user) {
-      // If not logged in, prompt to log in and redirect to login page
-      alert("Please log in to add items to your cart.");
+      toast.warning("Please log in to add items to your cart.");
       navigate("/login");
       return;
     }
-
-    // If logged in, add to cart
     addToCart(product);
-  };
-
-  const handleOutOfStock = () => {
-    alert("This product is out of stock and cannot be added to the cart.");
+    toast.success(`${product.name} added to cart!`);
   };
 
   return (
     <div className="cursor-pointer bg-background text-foreground rounded-xl overflow-hidden shadow hover:shadow-lg transition">
       <div onClick={handleClick}>
         <img
-          src={product.images[0]}
+          src={product.images?.[0] || "/placeholder.jpg"} // ✅ fallback if no image
           alt={product.name}
           className="w-full h-48 object-cover"
         />
         <div className="p-4">
           <h2 className="text-lg font-semibold">{product.name}</h2>
-          <p className="text-sm text-black">{product.category.name}</p>
-          <p className="text-foreground font-medium mt-1">ETB {parseFloat(product.price).toFixed(2)}</p>
-
+          <p className="text-sm text-black">{product.category?.name}</p>
+          <p className="text-foreground font-medium mt-1">
+            ETB {parseFloat(product.price).toFixed(2)}
+          </p>
+          {/* ✅ Show stock status */}
           {product.stock === 0 ? (
             <p className="text-red-500 text-sm font-bold mt-1">Out of Stock</p>
           ) : product.stock <= 3 ? (
@@ -54,11 +50,11 @@ const ProductCard = ({ product }) => {
         </div>
       </div>
 
-      {/* Disable button if out of stock and show an alert */}
-      <Button 
-        className="w-full mt-2 bg-primary text-primary-foreground" 
-        onClick={product.stock === 0 ? handleOutOfStock : handleAddToCart} // Call alert if out of stock
-        disabled={product.stock === 0}  // Disable button if out of stock
+      {/* ✅ Add to Cart button, disabled if out of stock */}
+      <Button
+        className="w-full mt-2 bg-primary text-primary-foreground"
+        onClick={product.stock === 0 ? () => toast.error("Out of stock!") : handleAddToCart}
+        disabled={product.stock === 0}
       >
         <ShoppingBag className="mr-2" />
         {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
