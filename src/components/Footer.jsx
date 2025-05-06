@@ -33,13 +33,10 @@ export default function Footer() {
               Products
             </h2>
             <ul className="space-y-2 text-sm">
-              <li><Link to="#" className="hover:text-green-400">Luxury</Link></li>
-              <li><Link to="#" className="hover:text-green-400">Sport Wear</Link></li>
-              <li><Link to="#" className="hover:text-green-400">Men's Shoes</Link></li>
-              <li><Link to="#" className="hover:text-green-400">Women's Shoes</Link></li>
-              <li><Link to="#" className="hover:text-green-400">Popular Dress</Link></li>
-              <li><Link to="#" className="hover:text-green-400">Gym Accessories</Link></li>
-              <li><Link to="#" className="hover:text-green-400">Sport Shoes</Link></li>
+            <li><Link to="/products" className="hover:text-green-400">Automotive</Link></li>
+            <li><Link to="/products" className="hover:text-green-400">Toys & Games</Link></li>
+            <li><Link to="/products" className="hover:text-green-400">Sports & Outdoors</Link></li>
+
             </ul>
           </div>
 
