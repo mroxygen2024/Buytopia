@@ -50,7 +50,7 @@ const ProductCard = ({ product }) => {
         </div>
       </div>
 
-      {/* ✅ Add to Cart button, disabled if out of stock */}
+      {/*  Add to Cart button, disabled if out of stock */}
       <Button
         className="w-full mt-2 bg-primary text-primary-foreground"
         onClick={product.stock === 0 ? () => toast.error("Out of stock!") : handleAddToCart}

@@ -1,6 +1,6 @@
 // import React, { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
-import products from "../data/products"; // ❌ Commented: we now fetch from API
+import products from "../data/products"; 
 // import { toast } from "react-toastify";
 
 const Products = () => {

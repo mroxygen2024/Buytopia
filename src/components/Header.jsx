@@ -52,7 +52,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-primary shadow-md">
+    <header className="bg-[#1d242d] shadow-md">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link to="/" className="text-2xl font-bold text-primary-foreground transition">
           Buytopia
