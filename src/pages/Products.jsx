@@ -27,7 +27,9 @@ const Products = () => {
       <h1 className="text-3xl font-bold text-green-800 mb-6 text-center">All Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
-          <ProductCard key={product.slug} product={product} />
+          <div key={product.slug} className="p-0.5"> 
+           <ProductCard product={product} />
+          </div>
         ))}
       </div>
     </div>

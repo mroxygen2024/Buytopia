@@ -6,7 +6,7 @@ import { ShoppingBag } from "lucide-react";
 import { useCart } from "../contexts/CartContext";
 import { toast } from "react-toastify";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product ,hideAddToCart= false }) => {
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
@@ -50,14 +50,16 @@ const ProductCard = ({ product }) => {
         </div>
       </div>
 
-      <Button
-        className="w-full mt-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded"
-        onClick={product.stock === 0 ? () => toast.error("Out of stock!") : handleAddToCart}
-        disabled={product.stock === 0}
-      >
-        <ShoppingBag className="mr-2" />
-        {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
-      </Button>
+      {!hideAddToCart && (
+        <Button
+          className="w-full mt-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded"
+          onClick={product.stock === 0 ? () => toast.error("Out of stock!") : handleAddToCart}
+          disabled={product.stock === 0}
+        >
+          <ShoppingBag className="mr-2" />
+          {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
+        </Button>
+      )}
     </div>
   );
 };

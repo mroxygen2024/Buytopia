@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import banner1 from '../assets/banner_img_01 (1).jpg';
 import banner2 from '../assets/banner_img_02 (1).jpg';
 import banner3 from '../assets/banner_img_03 (1).jpg';
-import Products from './Products';
+import FeaturedProducts from './FeaturedProducts';
+
 
 const slides = [
   {
@@ -43,7 +44,7 @@ export default function HeroCarousel() {
 
   return (
     <>
-      <div className="relative w-full overflow-hidden bg-white">
+      <div className="relative w-full overflow-hidden  bg-green-50">
         {/* Slide Container */}
         <div
           className="flex transition-transform duration-700 ease-in-out"
@@ -109,7 +110,7 @@ export default function HeroCarousel() {
           ))}
         </div>
       </div>
-      <Products />
+      <FeaturedProducts/>
     </>
   );
 }
