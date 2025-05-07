@@ -47,7 +47,7 @@ export default function HeroCarousel() {
       <div className="relative w-full overflow-hidden  bg-green-50">
         {/* Slide Container */}
         <div
-          className="flex transition-transform duration-700 ease-in-out"
+          className="flex transition-transform duration-700 ease-in-out my-6"
           style={{
             transform: `translateX(-${current * 100}%)`,
             width: `${slides.length * 32}%`,
