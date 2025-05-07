@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { z } from 'zod';
+
+const loginSchema = z.object({
+  email: z.string().email({ message: "Invalid email address" }),
+  password: z.string().min(6, { message: "Password must be at least 6 characters" })
+});
 
 const Login = () => {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -11,8 +17,10 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    if (!form.email || !form.password) {
-      toast.error('Please fill in both fields.');
+    const result = loginSchema.safeParse(form);
+    if (!result.success) {
+      const errorMessages = result.error.issues.map(issue => issue.message);
+      errorMessages.forEach(msg => toast.error(msg));
       return;
     }
 

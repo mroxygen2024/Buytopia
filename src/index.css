@@ -6,9 +6,9 @@
 .dark {
   --primary: var(--color-green-300);
   --primary-foreground: var(--color-green-900);
-  --background: oklch(0.145 0 0); /* Dark background */
-  --foreground: oklch(0.985 0 0); /* Light foreground text */
-  --primary-background: oklch(0.13 0 0); /* Slightly darker primary background */
+  --background: oklch(0.145 0 0); 
+  --foreground: oklch(0.985 0 0); 
+  --primary-background: oklch(0.13 0 0); 
 }
 
 @theme {
@@ -16,16 +16,16 @@
   --color-green-100: #c1edd0;
   --color-green-200: #99e1b1;
   --color-green-300: #66d28d;
-  --color-green-400: #31af51; /* Primary color */
+  --color-green-400: #31af51; 
   --color-green-500: #249146;
   --color-green-600: #1b743c;
   --color-green-700: #165e34;
   --color-green-800: #134b2d;
   --color-green-900: #113d27;
 
-  --primary: var(--color-green-500); /* Primary color */
-  --primary-foreground: var(--color-green-900); /* Dark text */
-  --primary-background: var(--color-green-50); /* Light background */
+  --primary: var(--color-green-500); 
+  --primary-foreground: var(--color-green-900); 
+  --primary-background: var(--color-green-50); 
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -78,8 +78,8 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0); /* Light background */
-  --foreground: oklch(0.145 0 0); /* Dark text */
+  --background: oklch(1 0 0); 
+  --foreground: oklch(0.145 0 0); 
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -112,8 +112,8 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0); /* Dark background */
-  --foreground: oklch(0.985 0 0); /* Light text */
+  --background: oklch(0.145 0 0); 
+  --foreground: oklch(0.985 0 0); 
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
