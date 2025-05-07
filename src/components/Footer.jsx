@@ -1,4 +1,3 @@
-// src/components/Footer.jsx
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -6,7 +5,7 @@ export default function Footer() {
     <footer className="bg-[#1d242d] text-gray-300 pt-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand Info */}
+          
           <div>
             <h2 className="text-2xl font-bold text-white border-b border-gray-700 pb-2 mb-4">
               Buytopia
@@ -28,7 +27,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Products */}
+         
           <div>
             <h2 className="text-xl font-semibold text-white border-b border-gray-700 pb-2 mb-4">
               Products
@@ -40,7 +39,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Navigation */}
+          
           <div>
             <h2 className="text-xl font-semibold text-white border-b border-gray-700 pb-2 mb-4">
               Further Info
@@ -54,10 +53,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
+       
         <div className="my-6 border-t border-gray-700"></div>
 
-        {/* Subscribe Section */}
+      
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
           <div className="flex space-x-4">
             <Link to="#" className="bg-gray-800 hover:bg-[#31af51] text-white px-4 py-2 rounded-full text-sm transition">
@@ -90,7 +89,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      
       <div className="bg-[#1d242d] py-4">
         <div className="max-w-7xl mx-auto px-4 text-sm text-gray-400 text-center">
           &copy; {new Date().getFullYear()} CSEC ASTU | Designed by

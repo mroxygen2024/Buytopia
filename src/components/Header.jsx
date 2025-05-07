@@ -1,4 +1,3 @@
-// src/components/Header.jsx
 import { Link, useNavigate } from "react-router-dom";
 import { FaUser, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
@@ -9,7 +8,6 @@ import { clearAuthData } from "../utils/auth";
 
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [user, setUser] = useState(null);
@@ -34,9 +32,6 @@ export default function Header() {
     if (menuRef.current && !menuRef.current.contains(e.target)) {
       setShowMenu(false);
     }
-    if (searchRef.current && !searchRef.current.contains(e.target)) {
-      setShowSearch(false);
-    }
   };
 
   useEffect(() => {
@@ -48,18 +43,16 @@ export default function Header() {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/products?search=${encodeURIComponent(searchQuery.trim())}`);
-      setShowSearch(false);
     }
   };
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[#1d242d] shadow-md">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold text-[#31AF51] ">
+        <Link to="/" className="text-2xl font-bold text-[#31AF51]">
           Buytopia
         </Link>
 
-       
         <div className="md:hidden">
           <button
             onClick={() => setShowMobileMenu(!showMobileMenu)}
@@ -69,29 +62,26 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center space-x-6">
           <Link to="/" className="text-white hover:text-green-400">Home</Link>
           <Link to="/products" className="text-white hover:text-green-400">Products</Link>
 
           <div className="relative" ref={searchRef}>
-            <button
-              onClick={() => setShowSearch(prev => !prev)}
-              className="text-white hover:text-green-400"
+            <form
+              onSubmit={handleSearchSubmit}
+              className="flex items-center space-x-2 bg-gray-800 px-2 py-1 rounded-md shadow-md"
             >
-              <Search size={24} />
-            </button>
-            {showSearch && (
-              <form onSubmit={handleSearchSubmit}>
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search products..."
-                  className="absolute top-8 right-0 w-48 sm:w-64 px-3 py-2 border border-gray-300 rounded-md shadow-md focus:outline-none"
-                />
-              </form>
-            )}
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search products..."
+                className="bg-transparent text-white placeholder-gray-400 px-2 py-1 focus:outline-none"
+              />
+              <button type="submit" className="text-white hover:text-[#31AF51]">
+                <Search size={20} />
+              </button>
+            </form>
           </div>
 
           <Link to="/cart" className="relative text-white hover:text-green-400">
@@ -127,7 +117,6 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* Mobile nav */}
       {showMobileMenu && (
         <div className="md:hidden bg-[#1d242d] text-white px-4 pb-4 space-y-3">
           <Link to="/" onClick={() => setShowMobileMenu(false)} className="block hover:text-green-400">Home</Link>

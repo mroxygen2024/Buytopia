@@ -1,3 +1,5 @@
+//we used this data to test the product page and the cart page while we are working offline
+
 const products = [
   {
       id: "96d48b1c-7c86-45c7-8d3d-6ee9d03545bb",
@@ -20,7 +22,8 @@ const products = [
         name: "Automotive",
         slug: "automotive",
       },
-    },
+    }, 
+
     {
       id: "969fb2e9-b6c6-4bb2-9ca6-4114ba620a71",
       name: "Tire Pressure Gauge",

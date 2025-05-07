@@ -1,9 +1,9 @@
-// src/pages/ProductDetails.jsx
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ShoppingBag } from "lucide-react";
 import { useCart } from "../contexts/CartContext";
 import { toast } from "react-toastify";
+import placeholder from "../assets/placeholder.png"; // Placeholder image for products
 
 const ProductDetails = () => {
   const { addToCart } = useCart();
@@ -50,7 +50,7 @@ const ProductDetails = () => {
   if (!product) return <div className="p-6 text-green-800">Loading product...</div>;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto pt-20 bg-green-50 min-h-screen">
+    <div className="p-6 max-w-4xl mx-auto pt-20 min-h-screen">
       <button
         onClick={() => navigate("/products")}
         className="mb-4 text-green-700 hover:underline flex items-center"
@@ -60,7 +60,7 @@ const ProductDetails = () => {
 
       <div className="flex flex-col md:flex-row gap-6">
         <img
-          src={product.images?.[0] || "/placeholder.jpg"}
+          src={product.images?.[0] || placeholder}
           alt={product.name}
           className="w-full md:w-1/2 object-cover rounded-lg shadow-md"
         />
@@ -79,16 +79,17 @@ const ProductDetails = () => {
           }`}>
             {getStockStatus(product.stock)}
           </p>
+          <div className="flex justify-end pr-65 mt-6">
+            <button
+            onClick={handleAddToCart}
+            className="px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded"
+            disabled={product.stock === 0}
+          >
+            {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
+          </button>
+          </div>
         </div>
       </div>
-
-      <button
-        onClick={handleAddToCart}
-        className="mt-4 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded"
-        disabled={product.stock === 0}
-      >
-        {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
-      </button>
     </div>
   );
 };

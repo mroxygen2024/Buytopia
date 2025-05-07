@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import { toast } from 'react-toastify';

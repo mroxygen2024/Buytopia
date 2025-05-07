@@ -47,7 +47,7 @@ const CartPage = () => {
         to="/products"
         className="inline-block mt-6 px-4 py-2 bg-[#31af51] text-white rounded hover:bg-[#278a40] transition"
       >
-        ← Back to Products
+       ← Back to Products
       </Link>
     </div>
   );
