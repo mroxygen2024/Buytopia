@@ -53,13 +53,13 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-[#1d242d] shadow-md">
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#1d242d] shadow-md">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold text-primary-foreground text-white hover:text-green-400">
+        <Link to="/" className="text-2xl font-bold text-[#31AF51] ">
           Buytopia
         </Link>
 
-        {/* Mobile toggle */}
+       
         <div className="md:hidden">
           <button
             onClick={() => setShowMobileMenu(!showMobileMenu)}

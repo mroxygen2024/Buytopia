@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
@@ -26,14 +25,14 @@ const ProductCard = ({ product ,hideAddToCart= false }) => {
   };
 
   return (
-    <div className="cursor-pointer bg-white border border-green-200 text-green-900 rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+    <div className="cursor-pointer bg-white border border-green-200 text-green-900 rounded-xl shadow hover:shadow-lg transition p-4">
       <div onClick={handleClick}>
         <img
           src={product.images?.[0] || "/placeholder.jpg"}
           alt={product.name}
-          className="w-full h-48 object-cover transform transition-transform duration-300 hover:scale-105"
+          className="w-full h-48 object-cover rounded-lg transform transition-transform duration-300 hover:scale-105"
         />
-        <div className="p-4">
+        <div className="mt-4">
           <h2 className="text-lg font-bold">{product.name}</h2>
           <p className="text-sm text-green-700">{product.category?.name}</p>
           <p className="text-green-800 font-semibold mt-1">
