@@ -7,7 +7,6 @@ export default function LogoutButton({ onLogout }) {
 
   const handleLogout = async () => {
     try {
-  
       // await fetch("https://ecommerce-backend-tqgh.onrender.com/api/v1/auth/logout", {
       //   method: "POST",
       //   credentials: "include",
@@ -18,7 +17,6 @@ export default function LogoutButton({ onLogout }) {
       // });
 
       clearAuthData();
-
       if (onLogout) onLogout();
       toast.success("Logged out successfully!");
       navigate("/login");
@@ -30,7 +28,7 @@ export default function LogoutButton({ onLogout }) {
   return (
     <button
       onClick={handleLogout}
-      className="w-full text-left px-4 py-2 hover:bg-black  text-red-600"
+      className="w-full text-left px-4 py-2 hover:bg-[#31af51] hover:text-white text-red-600 rounded transition-colors duration-200"
     >
       Logout
     </button>

@@ -39,38 +39,41 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto py-8 px-4">
-      <h2 className="text-2xl font-bold mb-4">Reset Password</h2>
-      <form onSubmit={handleReset} className="space-y-4">
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full border p-2 rounded"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Enter reset code"
-          className="w-full border p-2 rounded"
-          value={code}
-          onChange={(e) => setCode(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Enter new password"
-          className="w-full border p-2 rounded"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button
-          type="submit"
-          className="w-full bg-black text-white py-2 rounded"
-          disabled={loading}
-        >
-          {loading ? "Resetting..." : "Reset Password"}
-        </button>
-      </form>
+    <div className="min-h-screen flex items-center justify-center bg-green-50 px-4 py-12">
+      <div className="w-full max-w-md bg-white shadow-2xl rounded-xl p-8 border border-green-300">
+        <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">Reset Password</h2>
+        
+        <form onSubmit={handleReset} className="space-y-4">
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full border border-green-400 focus:border-green-500 focus:ring-green-500 rounded px-4 py-2 outline-none"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Enter reset code"
+            className="w-full border border-green-400 focus:border-green-500 focus:ring-green-500 rounded px-4 py-2 outline-none"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Enter new password"
+            className="w-full border border-green-400 focus:border-green-500 focus:ring-green-500 rounded px-4 py-2 outline-none"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button
+            type="submit"
+            className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-semibold transition disabled:opacity-50"
+            disabled={loading}
+          >
+            {loading ? "Resetting..." : "Reset Password"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

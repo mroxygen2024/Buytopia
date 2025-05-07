@@ -1,4 +1,3 @@
-// src/pages/CartPage.jsx
 import React from 'react';
 import { useCart } from '../contexts/CartContext';
 import { Link } from 'react-router-dom';
@@ -8,10 +7,10 @@ const CartPage = () => {
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Shopping Cart</h1>
+      <h1 className="text-2xl font-bold mb-4 text-[#14532d]">Shopping Cart</h1>
 
       {cart.length === 0 ? (
-        <p>No items in the cart.</p>
+        <p className="text-gray-600">No items in the cart.</p>
       ) : (
         <div className="space-y-4">
           {cart.map(item => (
@@ -26,7 +25,7 @@ const CartPage = () => {
                   className="w-16 h-16 object-cover rounded"
                 />
                 <div>
-                  <h2 className="text-lg font-semibold">{item.name}</h2>
+                  <h2 className="text-lg font-semibold text-[#166534]">{item.name}</h2>
                   <p className="text-sm text-gray-600">Quantity: {item.quantity}</p>
                   <p className="text-sm text-gray-700 font-medium">
                     Price: ETB {parseFloat(item.price).toFixed(2)}
@@ -46,7 +45,7 @@ const CartPage = () => {
 
       <Link
         to="/products"
-        className="inline-block mt-6 px-4 py-2 bg-primary text-primary-foreground rounded hover:bg-primary/90 transition"
+        className="inline-block mt-6 px-4 py-2 bg-[#31af51] text-white rounded hover:bg-[#278a40] transition"
       >
         ← Back to Products
       </Link>

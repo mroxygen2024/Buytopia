@@ -43,56 +43,58 @@ const Login = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-4">Login</h2>
+    <div className="min-h-screen flex items-center justify-center bg-green-50 px-4 py-12">
+      <div className="w-full max-w-md bg-white shadow-2xl rounded-xl p-8 border border-green-300">
+        <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">Login</h2>
 
-      <form onSubmit={handleLogin} className="space-y-4">
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full border p-2 rounded"
-          value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-          required
-        />
-        <div className="relative">
+        <form onSubmit={handleLogin} className="space-y-4">
           <input
-            type={showPassword ? 'text' : 'password'}
-            placeholder="Password"
-            className="w-full border p-2 rounded"
-            value={form.password}
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
+            type="email"
+            placeholder="Email"
+            className="w-full border border-green-400 focus:border-green-500 focus:ring-green-500 rounded px-4 py-2 outline-none"
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
             required
           />
-          <span
-            className="absolute right-3 top-2 cursor-pointer text-sm text-blue-600"
-            onClick={() => setShowPassword(!showPassword)}
+          <div className="relative">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              placeholder="Password"
+              className="w-full border border-green-400 focus:border-green-500 focus:ring-green-500 rounded px-4 py-2 pr-16 outline-none"
+              value={form.password}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
+              required
+            />
+            <span
+              className="absolute right-4 top-2.5 text-sm text-green-600 cursor-pointer"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? 'Hide' : 'Show'}
+            </span>
+          </div>
+
+          <div className="text-right text-sm">
+            <Link to="/forgot-password" className="text-green-600 hover:underline">
+              Forgot Password?
+            </Link>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-semibold transition disabled:opacity-50"
+            disabled={loading}
           >
-            {showPassword ? 'Hide' : 'Show'}
-          </span>
-        </div>
+            {loading ? 'Logging in...' : 'Login'}
+          </button>
+        </form>
 
-        <div className="text-right text-sm">
-          <Link to="/forgot-password" className="text-blue-600 hover:underline">
-            Forgot Password?
+        <p className="mt-4 text-sm text-center">
+          Don't have an account?{' '}
+          <Link to="/register" className="text-green-600 hover:underline font-medium">
+            Register
           </Link>
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-black text-white py-2 rounded disabled:opacity-50"
-          disabled={loading}
-        >
-          {loading ? 'Logging in...' : 'Login'}
-        </button>
-      </form>
-
-      <p className="mt-4 text-sm">
-        Don't have an account?{' '}
-        <Link to="/register" className="text-blue-600 hover:underline">
-          Register
-        </Link>
-      </p>
+        </p>
+      </div>
     </div>
   );
 };

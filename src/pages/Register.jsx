@@ -1,3 +1,4 @@
+// Register Component
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -57,70 +58,73 @@ const Register = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-4">Register</h2>
+    <div className="min-h-screen flex items-center justify-center bg-green-50 px-4 py-12">
+      <div className="w-full max-w-md bg-white shadow-2xl rounded-xl p-8 border border-green-300">
+        <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">Create Account</h2>
 
-      <form onSubmit={handleRegister} className="space-y-4">
-        <input
-          name="firstName"
-          placeholder="First Name"
-          className="w-full border p-2 rounded"
-          value={form.firstName}
-          onChange={handleChange}
-          required
-        />
-        <input
-          name="lastName"
-          placeholder="Last Name"
-          className="w-full border p-2 rounded"
-          value={form.lastName}
-          onChange={handleChange}
-          required
-        />
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          className="w-full border p-2 rounded"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
-        <div className="relative">
+        <form onSubmit={handleRegister} className="space-y-4">
           <input
-            name="password"
-            type={showPassword ? 'text' : 'password'}
-            placeholder="Password"
-            className="w-full border p-2 rounded"
-            value={form.password}
+            name="firstName"
+            placeholder="First Name"
+            className="w-full border border-green-400 focus:border-green-500 focus:ring-green-500 rounded px-4 py-2 outline-none"
+            value={form.firstName}
             onChange={handleChange}
             required
           />
-          <span
-            className="absolute right-3 top-2 cursor-pointer text-sm text-blue-600"
-            onClick={() => setShowPassword(!showPassword)}
+          <input
+            name="lastName"
+            placeholder="Last Name"
+            className="w-full border border-green-400 focus:border-green-500 focus:ring-green-500 rounded px-4 py-2 outline-none"
+            value={form.lastName}
+            onChange={handleChange}
+            required
+          />
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            className="w-full border border-green-400 focus:border-green-500 focus:ring-green-500 rounded px-4 py-2 outline-none"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
+          <div className="relative">
+            <input
+              name="password"
+              type={showPassword ? 'text' : 'password'}
+              placeholder="Password"
+              className="w-full border border-green-400 focus:border-green-500 focus:ring-green-500 rounded px-4 py-2 pr-16 outline-none"
+              value={form.password}
+              onChange={handleChange}
+              required
+            />
+            <span
+              className="absolute right-4 top-2.5 text-sm text-green-600 cursor-pointer"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? 'Hide' : 'Show'}
+            </span>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-semibold transition disabled:opacity-50"
+            disabled={loading}
           >
-            {showPassword ? 'Hide' : 'Show'}
-          </span>
-        </div>
+            {loading ? 'Registering...' : 'Register'}
+          </button>
+        </form>
 
-        <button
-          type="submit"
-          className="w-full bg-black text-white py-2 rounded disabled:opacity-50"
-          disabled={loading}
-        >
-          {loading ? 'Registering...' : 'Register'}
-        </button>
-      </form>
-
-      <p className="mt-4 text-sm">
-        Already have an account?{' '}
-        <Link to="/login" className="text-blue-600 hover:underline">
-          Login
-        </Link>
-      </p>
+        <p className="mt-6 text-sm text-center">
+          Already have an account?{' '}
+          <Link to="/login" className="text-green-600 hover:underline font-medium">
+            Login
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };
 
 export default Register;
+

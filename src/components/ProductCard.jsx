@@ -1,4 +1,4 @@
-// src/components/ProductCard.jsx
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
   };
 
   const handleAddToCart = () => {
-    const user = localStorage.getItem("user"); // ✅ Only add to cart if logged in
+    const user = localStorage.getItem("user");
     if (!user) {
       toast.warning("Please log in to add items to your cart.");
       navigate("/login");
@@ -26,33 +26,32 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="cursor-pointer bg-background text-foreground rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+    <div className="cursor-pointer bg-white border border-green-200 text-green-900 rounded-xl overflow-hidden shadow hover:shadow-lg transition">
       <div onClick={handleClick}>
         <img
-          src={product.images?.[0] || "/placeholder.jpg"} // ✅ fallback if no image
+          src={product.images?.[0] || "/placeholder.jpg"}
           alt={product.name}
-          className="w-full h-48 object-cover"
+          className="w-full h-48 object-cover transform transition-transform duration-300 hover:scale-105"
         />
         <div className="p-4">
-          <h2 className="text-lg font-semibold">{product.name}</h2>
-          <p className="text-sm text-black">{product.category?.name}</p>
-          <p className="text-foreground font-medium mt-1">
+          <h2 className="text-lg font-bold">{product.name}</h2>
+          <p className="text-sm text-green-700">{product.category?.name}</p>
+          <p className="text-green-800 font-semibold mt-1">
             ETB {parseFloat(product.price).toFixed(2)}
           </p>
-          {/* ✅ Show stock status */}
+
           {product.stock === 0 ? (
-            <p className="text-red-500 text-sm font-bold mt-1">Out of Stock</p>
+            <p className="text-red-600 text-sm font-bold mt-1">Out of Stock</p>
           ) : product.stock <= 3 ? (
-            <p className="text-red-500 text-sm font-bold mt-1">Low Stock</p>
+            <p className="text-yellow-600 text-sm font-bold mt-1">Low Stock</p>
           ) : (
-            <p className="text-green-500 text-sm font-bold mt-1">In Stock</p>
+            <p className="text-green-600 text-sm font-bold mt-1">In Stock</p>
           )}
         </div>
       </div>
 
-      {/*  Add to Cart button, disabled if out of stock */}
       <Button
-        className="w-full mt-2 bg-primary text-primary-foreground"
+        className="w-full mt-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded"
         onClick={product.stock === 0 ? () => toast.error("Out of stock!") : handleAddToCart}
         disabled={product.stock === 0}
       >
