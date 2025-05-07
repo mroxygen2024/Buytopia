@@ -50,7 +50,7 @@ const ProductDetails = () => {
   if (!product) return <div className="p-6 text-green-800">Loading product...</div>;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto bg-green-50 min-h-screen">
+    <div className="p-6 max-w-4xl mx-auto pt-20 bg-green-50 min-h-screen">
       <button
         onClick={() => navigate("/products")}
         className="mb-4 text-green-700 hover:underline flex items-center"

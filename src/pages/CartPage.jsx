@@ -6,7 +6,7 @@ const CartPage = () => {
   const { cart, removeFromCart } = useCart();
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="p-6 max-w-4xl pt-20 mx-auto">
       <h1 className="text-2xl font-bold mb-4 text-[#14532d]">Shopping Cart</h1>
 
       {cart.length === 0 ? (
