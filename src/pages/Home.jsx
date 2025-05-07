@@ -7,24 +7,25 @@ import FeaturedProducts from './FeaturedProducts';
 
 const slides = [
   {
-    title: 'Zay eCommerce',
-    subtitle: 'Tiny and Perfect eCommerce Template',
-    text: 'Zay Shop is a custom HTML5 template. 100% free provided by TemplateMo. Images from Freepik Stories, Unsplash, and Icons8.',
+    title: 'Buytopia ',
+    subtitle: 'Modern and Minimal Shopping Experience',
+    text: 'Buytopia is a sleek and responsive eCommerce web app built using React and a clean green UI design. It offers product listings, detail views, cart management, and user authentication.',
     img: banner1
   },
   {
-    title: 'Proident occaecat',
-    subtitle: 'Aliquip ex ea commodo consequat',
-    text: 'Use this template for commercial websites. Do not re-distribute the ZIP file on template collections.',
+    title: 'Buytopia ',
+    subtitle: 'Fully Dynamic & API Integrated',
+    text: 'This project features real-time product fetching from a custom backend API, dynamic cart functionality, and secure user login, registration, and logout features.',
     img: banner2
   },
   {
-    title: 'Repr in voluptate',
-    subtitle: 'Ullamco laboris nisi ut',
-    text: 'We offer free CSS templates. Support us by sharing TemplateMo or contributing via PayPal.',
+    title: 'Buytopia ',
+    subtitle: 'Custom-Built with React',
+    text: 'Developed from scratch using React and styled with a green palette, Buytopia delivers a clean UI, seamless navigation, and a complete frontend shopping experience.',
     img: banner3
   },
 ];
+
 
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);
