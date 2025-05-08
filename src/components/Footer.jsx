@@ -20,8 +20,8 @@ export default function Footer() {
               </li>
               <li>
                 ✉️{" "}
-                <a href="mailto:fuadsano460@gmail.com" className="hover:text-[#31af51]">
-                  Buytopia@gmail.com
+                <a href="mailto:buttopia06@gmail.com" className="hover:text-[#31af51]">
+                  Buytopia06@gmail.com
                 </a>
               </li>
             </ul>
@@ -62,7 +62,7 @@ export default function Footer() {
             <Link to="#" className="bg-gray-800 hover:bg-[#31af51] text-white px-4 py-2 rounded-full text-sm transition">
               Facebook
             </Link>
-            <Link to="#" className="bg-gray-800 hover:bg-[#31af51] text-white px-4 py-2 rounded-full text-sm transition">
+            <Link to="https://www.instagram.com/buyt_opia/" className="bg-gray-800 hover:bg-[#31af51] text-white px-4 py-2 rounded-full text-sm transition">
               Instagram
             </Link>
             <Link to="#" className="bg-gray-800 hover:bg-[#31af51] text-white px-4 py-2 rounded-full text-sm transition">
