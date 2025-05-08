@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
+import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -11,23 +13,24 @@ export default function Footer() {
               Buytopia
             </h2>
             <ul className="space-y-2 text-sm">
-              <li>📍 Adama, Ethiopia</li>
-              <li>
-                📞{" "}
+              <li className="flex items-center gap-2">
+                <FiMapPin className="text-[#31af51]" /> Adama, Ethiopia
+              </li>
+              <li className="flex items-center gap-2">
+                <FiPhone className="text-[#31af51]" />
                 <a href="tel:+251968094406" className="hover:text-[#31af51]">
                   +251 9xx xxx xxx
                 </a>
               </li>
-              <li>
-                ✉️{" "}
-                <a href="mailto:buttopia06@gmail.com" className="hover:text-[#31af51]">
+              <li className="flex items-center gap-2">
+                <FiMail className="text-[#31af51]" />
+                <a href="mailto:buytopia06@gmail.com" className="hover:text-[#31af51]">
                   Buytopia06@gmail.com
                 </a>
               </li>
             </ul>
           </div>
 
-         
           <div>
             <h2 className="text-xl font-semibold text-white border-b border-gray-700 pb-2 mb-4">
               Products
@@ -39,7 +42,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          
           <div>
             <h2 className="text-xl font-semibold text-white border-b border-gray-700 pb-2 mb-4">
               Further Info
@@ -53,23 +55,21 @@ export default function Footer() {
           </div>
         </div>
 
-       
         <div className="my-6 border-t border-gray-700"></div>
 
-      
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
           <div className="flex space-x-4">
-            <Link to="#" className="bg-gray-800 hover:bg-[#31af51] text-white px-4 py-2 rounded-full text-sm transition">
-              Facebook
+            <Link to="#" className="bg-gray-800 hover:bg-[#31af51] text-white p-2 rounded-full transition">
+              <FaFacebookF />
             </Link>
-            <Link to="https://www.instagram.com/buyt_opia/" className="bg-gray-800 hover:bg-[#31af51] text-white px-4 py-2 rounded-full text-sm transition">
-              Instagram
+            <Link to="https://www.instagram.com/buyt_opia/" className="bg-gray-800 hover:bg-[#31af51] text-white p-2 rounded-full transition">
+              <FaInstagram />
             </Link>
-            <Link to="#" className="bg-gray-800 hover:bg-[#31af51] text-white px-4 py-2 rounded-full text-sm transition">
-              Twitter
+            <Link to="#" className="bg-gray-800 hover:bg-[#31af51] text-white p-2 rounded-full transition">
+              <FaTwitter />
             </Link>
-            <Link to="#" className="bg-gray-800 hover:bg-[#31af51] text-white px-4 py-2 rounded-full text-sm transition">
-              LinkedIn
+            <Link to="#" className="bg-gray-800 hover:bg-[#31af51] text-white p-2 rounded-full transition">
+              <FaLinkedinIn />
             </Link>
           </div>
 
@@ -89,10 +89,9 @@ export default function Footer() {
         </div>
       </div>
 
-      
       <div className="bg-[#1d242d] py-4">
         <div className="max-w-7xl mx-auto px-4 text-sm text-gray-400 text-center">
-          &copy; {new Date().getFullYear()} CSEC ASTU | Designed by
+          &copy; {new Date().getFullYear()} Buytopia | Designed by
           <span className="text-[#31af51] font-medium"> Syntax Squad</span>
           <p>All rights reserved.</p>
         </div>

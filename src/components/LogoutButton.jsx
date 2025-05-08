@@ -7,7 +7,7 @@ export default function LogoutButton({ onLogout }) {
 
   const handleLogout = async () => {
     try {
-      // await fetch("https://ecommerce-backend-tqgh.onrender.com/api/v1/auth/logout", {
+      // await fetch(`${import.meta.env.VITE_API_BASE_URL}logout`, {
       //   method: "POST",
       //   credentials: "include",
       //   headers: {

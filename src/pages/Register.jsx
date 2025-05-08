@@ -29,8 +29,8 @@ const Register = () => {
   const onSubmit = async (formData) => {
     try {
       setLoading(true);
-
-      const response = await fetch("https://ecommerce-backend-tqgh.onrender.com/api/v1/auth/register", {
+      
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/products/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

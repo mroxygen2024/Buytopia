@@ -27,7 +27,7 @@ const Login = () => {
     try {
       setLoading(true);
 
-      const response = await fetch("https://ecommerce-backend-tqgh.onrender.com/api/v1/auth/login", {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/products/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),

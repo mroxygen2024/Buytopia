@@ -20,7 +20,9 @@ const ResetPassword = () => {
 
     try {
       setLoading(true);
-      const res = await fetch("https://ecommerce-backend-tqgh.onrender.com/api/v1/auth/reset-password", {
+      
+
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/reset-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, code, password }),

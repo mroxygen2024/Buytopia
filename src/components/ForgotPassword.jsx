@@ -13,7 +13,7 @@ const ForgotPassword = () => {
 
     try {
       setLoading(true);
-      const res = await fetch("https://ecommerce-backend-tqgh.onrender.com/api/v1/auth/forgot-password", {
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/forgot-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

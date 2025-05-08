@@ -9,7 +9,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("https://ecommerce-backend-tqgh.onrender.com/api/v1/products");
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/products`);
         const data = await res.json();
         setProducts(data.data.products); 
       } catch (error) {
