@@ -104,7 +104,7 @@ VITE_API_BASE_URL=https://ecommerce-backend-tqgh.onrender.com/api/v1
 ## Contributors
 
 **Fuad Sano**
-- 💻 GitHub: [github.com/mroxygen2024]
+- 💻 GitHub: [https://github.com/mroxygen2024]
 
 **Chala Temesgen**
 - 💻 GitHub: [https://github.com/Chala751]
