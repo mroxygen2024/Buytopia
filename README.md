@@ -5,9 +5,9 @@ Welcome to **Butopia**, a modern and responsive eCommerce frontend built with **
 
 ## 🚀 Live Demo
 
-👉 [https://butopia.vercel.app/]
+👉 [https://buytopia.vercel.app/]
 
-> Replace this link with your deployed frontend link (e.g., Vercel, Netlify, or Render).
+
 
 ---
 
