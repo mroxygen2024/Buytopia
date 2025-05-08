@@ -37,7 +37,7 @@ Welcome to **Butopia**, a modern and responsive eCommerce frontend built with **
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/mroxygen2024/Butopia.git
+git clone https://github.com/mroxygen2024/Buytopia.git
 cd Butopia
 ```
 
@@ -60,7 +60,7 @@ Then paste the following:
 ```env
 VITE_API_BASE_URL=https://ecommerce-backend-tqgh.onrender.com/api/v1
 ```
-> Note: This URL points to the Render-hosted backend. You can replace it with your own API URL if needed.
+
 
 ### 4. Start the Development Server
 
