@@ -84,7 +84,6 @@ src/
 ├── App.jsx           # Main app layout with routes
 ├── index.css         # Global styles
 ├── main.jsx          # Vite entry file
-
 ```
 ---
 
@@ -106,12 +105,16 @@ VITE_API_BASE_URL=https://ecommerce-backend-tqgh.onrender.com/api/v1
 
 **Fuad Sano**
 - 💻 GitHub: [github.com/mroxygen2024]
+
 **Chala Temesgen**
 - 💻 GitHub: [https://github.com/Chala751]
+
 **Gelila Mulugeta**
 - 💻 GitHub: [https://github.com/ahvi27]
+
 **Hanan Eyob**
 - 💻 GitHub: [https://github.com/ruhatrix]
+
 **Iman Bedru**
 - 💻 GitHub: [https://github.com/misskal20]
 
