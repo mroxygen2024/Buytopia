@@ -6,6 +6,8 @@ import { Search } from "lucide-react";
 import LogoutButton from "./LogoutButton";
 import { clearAuthData } from "../utils/auth";
 
+
+
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
