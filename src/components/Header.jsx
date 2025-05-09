@@ -104,7 +104,7 @@ export default function Header() {
               <div className="absolute right-0 mt-2 w-48 bg-white border shadow-md rounded p-2 z-50 dark:bg-gray-900">
                 {user ? (
                   <>
-                    <p className="px-4 py-2 text-gray-700">Hello, {user.firstName || "User"}</p>
+                    <p className="px-4 py-2 text-gray-700" >Hello, {user.firstName || "User"}</p>
                     <LogoutButton onLogout={handleLogout} />
                   </>
                 ) : (

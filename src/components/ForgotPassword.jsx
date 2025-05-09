@@ -32,21 +32,21 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-green-50 px-4 py-12">
-      <div className="w-full max-w-md bg-white shadow-2xl rounded-xl p-8 border border-green-300">
-        <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">Forgot Password</h2>
+    <div className="min-h-screen flex items-center justify-center bg-green-50 px-4 py-12 dark:bg-gray-900">
+      <div className="w-full max-w-md bg-white shadow-2xl rounded-xl p-8 border border-green-300 dark:bg-gray-900 dark:border-green-500">
+        <h2 className="text-3xl font-bold text-green-700 mb-6 text-center dark:text-[#35955c]">Forgot Password</h2>
         
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="email"
             placeholder="Enter your email"
-            className="w-full border border-green-400 focus:border-green-500 focus:ring-green-500 rounded px-4 py-2 outline-none"
+            className="w-full border border-green-400 focus:border-green-500 focus:ring-green-500 rounded px-4 py-2 outline-none dark:bg-gray-800 dark:text-white dark:border-green-500"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <button
             type="submit"
-            className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-semibold transition disabled:opacity-50"
+            className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-semibold transition disabled:opacity-50 dark:bg-green-600 dark:hover:bg-green-700"
             disabled={loading}
           >
             {loading ? "Sending..." : "Send Reset Code"}

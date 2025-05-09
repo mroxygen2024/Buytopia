@@ -27,13 +27,14 @@ const Login = () => {
     try {
       setLoading(true);
 
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/products/login`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
 
       const data = await response.json();
+
       if (!response.ok) throw new Error(data.message || 'Login failed');
 
       const { user, accessToken, refreshToken } = data.data;
@@ -43,6 +44,7 @@ const Login = () => {
 
       toast.success("Login successful!");
       navigate('/products');
+      
     } catch (err) {
       toast.error(err.message);
     } finally {
