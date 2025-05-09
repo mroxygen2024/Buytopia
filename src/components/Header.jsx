@@ -51,7 +51,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[#1d242d] shadow-md">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold text-[#31AF51]">
+        <Link to="/" className="text-2xl ml-2.5 font-bold text-[#31AF51]">
           Buytopia
         </Link>
 
@@ -133,7 +133,7 @@ export default function Header() {
             />
             <button type="submit" className="bg-green-700 text-white px-3 rounded-r-md">Go</button>
           </form>
-          <Link to="/cart" className="block hover:text-green-400">Cart ({cart.length})</Link>
+          <Link to="/cart" onClick={() => setShowMobileMenu(false)} className="block hover:text-green-400">Cart ({cart.length})</Link>
           {user ? (
             <>
               <p>Hello, {user.firstName || "User"}</p>
@@ -141,8 +141,8 @@ export default function Header() {
             </>
           ) : (
             <>
-              <Link to="/login" className="block hover:text-green-400">Login</Link>
-              <Link to="/register" className="block hover:text-green-400">Register</Link>
+              <Link to="/login" onClick={() => setShowMobileMenu(false)} className="block hover:text-green-400">Login</Link>
+              <Link to="/register" onClick={() => setShowMobileMenu(false)} className="block hover:text-green-400">Register</Link>
             </>
           )}
         </div>

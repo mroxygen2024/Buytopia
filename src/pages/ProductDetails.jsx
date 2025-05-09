@@ -51,7 +51,7 @@ const ProductDetails = () => {
   if (!product) return <div className="p-6 text-green-800">Loading product...</div>;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto pt-20 min-h-screen">
+    <div className="p-6 pt-20 min-h-screen  bg-green-50">
       <button
         onClick={() => navigate("/products")}
         className="mb-4 text-green-700 hover:underline flex items-center"
@@ -80,7 +80,7 @@ const ProductDetails = () => {
           }`}>
             {getStockStatus(product.stock)}
           </p>
-          <div className="flex justify-end pr-65 mt-6">
+          <div className="flex justify-start md:justify-start mt-6">
             <button
             onClick={handleAddToCart}
             className="px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded"

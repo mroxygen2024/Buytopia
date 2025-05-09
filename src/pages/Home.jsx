@@ -25,7 +25,6 @@ const slides = [
   },
 ];
 
-
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);
   const total = slides.length;
@@ -38,14 +37,13 @@ export default function HeroCarousel() {
     const timer = setInterval(() => {
       nextSlide();
     }, 8000);
-
     return () => clearInterval(timer);
   }, []);
 
   return (
     <>
-      <div className="relative w-full overflow-hidden pt-15 bg-green-50">
-       
+      <div className="relative w-full overflow-hidden pt-6 bg-green-50">
+
         <div
           className="flex transition-transform duration-700 ease-in-out my-6"
           style={{
@@ -58,8 +56,7 @@ export default function HeroCarousel() {
               key={index}
               className="w-full flex-shrink-0 flex flex-col lg:flex-row items-center justify-between px-6 lg:px-24 py-10 min-h-[70vh] lg:min-h-[85vh]"
             >
-            
-              <div className="w-full lg:w-1/2 flex flex-col justify-center h-full pr-0 lg:pr-10">
+              <div className="w-full lg:w-1/2 flex flex-col justify-center h-full pr-0 lg:pr-10  mb-8 lg:mb-0">
                 <h1 className="text-3xl md:text-5xl font-bold text-[#14532d] mb-4">{slide.title}</h1>
                 <h3 className="text-xl md:text-2xl text-[#166534] mb-4">{slide.subtitle}</h3>
                 <p className="text-[#4d7c0f] mb-6">{slide.text}</p>
@@ -71,33 +68,32 @@ export default function HeroCarousel() {
                 </a>
               </div>
 
-              
               <div className="w-full lg:w-1/2 flex items-center justify-center mt-8 lg:mt-0">
                 <img
                   src={slide.img}
                   alt={`Slide ${index + 1}`}
-                  className="max-w-full max-h-[500px] w-auto h-auto object-contain rounded-xl shadow-md"
+                  className="w-full max-w-[400px] h-auto object-contain rounded-xl shadow-md sm:max-w-full"
                 />
               </div>
             </div>
           ))}
         </div>
 
-      
+        {/* Navigation Buttons */}
         <button
           onClick={prevSlide}
-          className="absolute top-1/2 left-4 transform -translate-y-1/2 text-3xl text-[#31af51] hover:text-[#1f7c3a] z-10"
+          className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 text-3xl text-[#31af51] hover:text-[#1f7c3a] z-10"
         >
           ❮
         </button>
         <button
           onClick={nextSlide}
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 text-3xl text-[#31af51] hover:text-[#1f7c3a] z-10"
+          className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 text-3xl text-[#31af51] hover:text-[#1f7c3a] z-10"
         >
           ❯
         </button>
 
-       
+        {/* Dot Indicators */}
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-3 z-10">
           {slides.map((_, idx) => (
             <button
@@ -110,7 +106,8 @@ export default function HeroCarousel() {
           ))}
         </div>
       </div>
-      <FeaturedProducts/>
+
+      <FeaturedProducts />
     </>
   );
 }
