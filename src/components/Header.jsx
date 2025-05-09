@@ -101,7 +101,7 @@ export default function Header() {
             </button>
 
             {showMenu && (
-              <div className="absolute right-0 mt-2 w-48 bg-white border shadow-md rounded p-2 z-50">
+              <div className="absolute right-0 mt-2 w-48 bg-white border shadow-md rounded p-2 z-50 dark:bg-gray-900">
                 {user ? (
                   <>
                     <p className="px-4 py-2 text-gray-700">Hello, {user.firstName || "User"}</p>
@@ -111,6 +111,7 @@ export default function Header() {
                   <>
                     <Link to="/login" className="block px-4 py-2 hover:bg-green-600 hover:text-white">Login</Link>
                     <Link to="/register" className="block px-4 py-2 hover:bg-green-600 hover:text-white">Register</Link>
+                    <Link to="/setting"  className="block px-4 py-2 hover:bg-green-600 hover:text-white">Settings</Link>
                   </>
                 )}
               </div>
@@ -143,6 +144,7 @@ export default function Header() {
             <>
               <Link to="/login" onClick={() => setShowMobileMenu(false)} className="block hover:text-green-400">Login</Link>
               <Link to="/register" onClick={() => setShowMobileMenu(false)} className="block hover:text-green-400">Register</Link>
+              <Link to="/setting" onClick={() => setShowMobileMenu(false)} className="block hover:text-green-400">Settings</Link>
             </>
           )}
         </div>

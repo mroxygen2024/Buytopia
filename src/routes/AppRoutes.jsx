@@ -7,6 +7,7 @@ import ProductDetails from "../pages/ProductDetails";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import CartPage from "../pages/CartPage";
+import Setting from "../pages/Setting";
 import ForgotPassword from "../components/ForgotPassword";
 import ResetPassword from "../components/ResetPassword";
 import NotFound from "../pages/NotFound";
@@ -22,6 +23,7 @@ const AppRoutes = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/setting" element={<Setting/>} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

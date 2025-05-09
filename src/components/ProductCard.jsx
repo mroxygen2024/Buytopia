@@ -25,7 +25,7 @@ const ProductCard = ({ product ,hideAddToCart= false }) => {
   };
 
   return (
-    <div className="cursor-pointer bg-white border border-green-200 text-green-900 rounded-xl shadow hover:shadow-lg transition p-4">
+    <div className="cursor-pointer bg-white border border-green-200 text-green-900 rounded-xl shadow hover:shadow-lg transition p-4 dark:bg-gray-900">
       <div onClick={handleClick}>
         <img
           src={product.images?.[0] || "/placeholder.jpg"}
@@ -33,9 +33,9 @@ const ProductCard = ({ product ,hideAddToCart= false }) => {
           className="w-full h-48 object-cover rounded-lg transform transition-transform duration-300 hover:scale-105"
         />
         <div className="mt-4">
-          <h2 className="text-lg font-bold">{product.name}</h2>
-          <p className="text-sm text-green-700">{product.category?.name}</p>
-          <p className="text-green-800 font-semibold mt-1">
+          <h2 className="text-lg font-bold dark:text-[#35955c]">{product.name}</h2>
+          <p className="text-sm text-green-700 dark:text-[#46855f]">{product.category?.name}</p>
+          <p className="text-green-800 font-semibold mt-1 dark:text-[#23643d]">
             ETB {parseFloat(product.price).toFixed(2)}
           </p>
 
@@ -44,7 +44,7 @@ const ProductCard = ({ product ,hideAddToCart= false }) => {
           ) : product.stock <= 3 ? (
             <p className="text-yellow-600 text-sm font-bold mt-1">Low Stock</p>
           ) : (
-            <p className="text-green-600 text-sm font-bold mt-1">In Stock</p>
+            <p className="text-green-600 text-sm font-bold mt-1 dark:text-[#35955c]">In Stock</p>
           )}
         </div>
       </div>

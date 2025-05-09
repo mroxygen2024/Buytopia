@@ -51,10 +51,10 @@ const ProductDetails = () => {
   if (!product) return <div className="p-6 text-green-800">Loading product...</div>;
 
   return (
-    <div className="p-6 pt-20 min-h-screen  bg-green-50">
+    <div className="p-6 pt-20 min-h-screen  bg-green-50 dark:bg-gray-900">
       <button
         onClick={() => navigate("/products")}
-        className="mb-4 text-green-700 hover:underline flex items-center"
+        className="mb-4 text-green-700 hover:underline flex items-center dark:text-[#35955c]"
       >
         <ShoppingBag className="mr-2" /> ← Back to Products
       </button>
@@ -67,8 +67,8 @@ const ProductDetails = () => {
         />
 
         <div>
-          <h1 className="text-3xl font-bold text-green-800 mb-2">{product.name}</h1>
-          <p className="text-gray-700 mb-2">{product.description}</p>
+          <h1 className="text-3xl font-bold text-green-800 mb-2 dark:text-[#35955c]">{product.name}</h1>
+          <p className="text-gray-700 mb-2 dark:text-[#35764e]">{product.description}</p>
           <p className="text-sm text-green-600 mb-1">Category: {product.category?.name}</p>
           <p className="text-lg font-semibold text-green-700 mb-1">Price: ETB {product.price}</p>
           <p className={`font-medium ${
@@ -76,7 +76,7 @@ const ProductDetails = () => {
               ? "text-red-600"
               : product.stock < 10
               ? "text-yellow-600"
-              : "text-green-700"
+              : "text-green-700 dark:text-[#35955c]"
           }`}>
             {getStockStatus(product.stock)}
           </p>

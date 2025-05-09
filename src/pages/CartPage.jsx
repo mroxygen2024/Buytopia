@@ -6,11 +6,11 @@ const CartPage = () => {
   const { cart, removeFromCart } = useCart();
 
   return (
-    <div className="p-6 pt-20 bg-green-50 mt-2">
-      <h1 className="text-2xl font-bold mb-4 text-[#14532d]">Shopping Cart</h1>
+    <div className="p-6 pt-20 bg-green-50 mt-2 dark:bg-gray-900">
+      <h1 className="text-2xl font-bold mb-4 text-[#14532d] dark:text-[#35955c]">Shopping Cart</h1>
 
       {cart.length === 0 ? (
-        <p className="text-gray-600">No items in the cart.</p>
+        <p className="text-gray-600 dark:text-[#46825e]">No items in the cart.</p>
       ) : (
         <div className="space-y-4">
           {cart.map(item => (
@@ -25,9 +25,9 @@ const CartPage = () => {
                   className="w-16 h-16 object-cover rounded"
                 />
                 <div>
-                  <h2 className="text-lg font-semibold text-[#166534]">{item.name}</h2>
-                  <p className="text-sm text-gray-600">Quantity: {item.quantity}</p>
-                  <p className="text-sm text-gray-700 font-medium">
+                  <h2 className="text-lg font-semibold text-[#166534] dark:text-[#35955c]">{item.name}</h2>
+                  <p className="text-sm text-gray-600 dark:text-[#46825e]">Quantity: {item.quantity}</p>
+                  <p className="text-sm text-gray-700 font-medium dark:text-[#46825e]">
                     Price: ETB {parseFloat(item.price).toFixed(2)}
                   </p>
                 </div>

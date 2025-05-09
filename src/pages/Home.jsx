@@ -9,19 +9,19 @@ const slides = [
     title: 'Buytopia ',
     subtitle: 'Modern and Minimal Shopping Experience',
     text: 'Buytopia is a sleek and responsive eCommerce web app built using React and a clean green UI design. It offers product listings, detail views, cart management, and user authentication.',
-    img: banner1
+    img: banner1,
   },
   {
     title: 'Buytopia ',
     subtitle: 'Fully Dynamic & API Integrated',
     text: 'This project features real-time product fetching from a custom backend API, dynamic cart functionality, and secure user login, registration, and logout features.',
-    img: banner2
+    img: banner2,
   },
   {
     title: 'Buytopia ',
     subtitle: 'Custom-Built with React',
     text: 'Developed from scratch using React and styled with a green palette, Buytopia delivers a clean UI, seamless navigation, and a complete frontend shopping experience.',
-    img: banner3
+    img: banner3,
   },
 ];
 
@@ -42,7 +42,7 @@ export default function HeroCarousel() {
 
   return (
     <>
-      <div className="relative w-full overflow-hidden pt-6 bg-green-50">
+      <div className="relative w-full overflow-hidden pt-6 bg-green-50 dark:bg-gray-900">
 
         <div
           className="flex transition-transform duration-700 ease-in-out my-6"
@@ -57,12 +57,16 @@ export default function HeroCarousel() {
               className="w-full flex-shrink-0 flex flex-col lg:flex-row items-center justify-between px-6 lg:px-24 py-10 min-h-[70vh] lg:min-h-[85vh]"
             >
               <div className="w-full lg:w-1/2 flex flex-col justify-center h-full pr-0 lg:pr-10  mb-8 lg:mb-0">
-                <h1 className="text-3xl md:text-5xl font-bold text-[#14532d] mb-4">{slide.title}</h1>
-                <h3 className="text-xl md:text-2xl text-[#166534] mb-4">{slide.subtitle}</h3>
-                <p className="text-[#4d7c0f] mb-6">{slide.text}</p>
+                <h1 className="text-3xl md:text-5xl font-bold text-[#14532d] dark:text-[#35955c] mb-4">
+                  {slide.title}
+                </h1>
+                <h3 className="text-xl md:text-2xl text-[#166534] dark:text-[#35955c] mb-4">
+                  {slide.subtitle}
+                </h3>
+                <p className="text-[#4d7c0f] dark:text-[#35955c] mb-6">{slide.text}</p>
                 <a
                   href="/products"
-                  className="bg-[#31af51] text-white px-6 py-3 rounded-full hover:bg-[#278a40] transition w-fit"
+                  className="bg-[#31af51] text-white px-6 py-3 rounded-full hover:bg-[#278a40] dark:bg-green-700 dark:hover:bg-green-600 transition w-fit"
                 >
                   Browse Products
                 </a>
@@ -82,13 +86,13 @@ export default function HeroCarousel() {
         {/* Navigation Buttons */}
         <button
           onClick={prevSlide}
-          className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 text-3xl text-[#31af51] hover:text-[#1f7c3a] z-10"
+          className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 text-3xl text-[#31af51] hover:text-[#1f7c3a]  dark:hover:text-green-200 z-10 dark:text-[#35955c]"
         >
           ❮
         </button>
         <button
           onClick={nextSlide}
-          className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 text-3xl text-[#31af51] hover:text-[#1f7c3a] z-10"
+          className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 text-3xl text-[#31af51] hover:text-[#1f7c3a] dark:text-green-300 dark:hover:text-green-200 z-10"
         >
           ❯
         </button>
@@ -100,7 +104,9 @@ export default function HeroCarousel() {
               key={idx}
               onClick={() => goToSlide(idx)}
               className={`w-3 h-3 rounded-full transition ${
-                idx === current ? 'bg-[#31af51]' : 'bg-[#a7e4bc]'
+                idx === current
+                  ? 'bg-[#31af51] dark:bg-green-400'
+                  : 'bg-[#a7e4bc] dark:bg-green-900'
               }`}
             />
           ))}

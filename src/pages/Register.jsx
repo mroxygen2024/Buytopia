@@ -54,9 +54,9 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-green-50 px-4 py-12">
-      <div className="w-full max-w-md bg-white shadow-2xl rounded-xl p-8 border border-green-300">
-        <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">Create Account</h2>
+    <div className="min-h-screen flex items-center justify-center bg-green-50 px-4 py-12 dark:bg-gray-900">
+      <div className="w-full max-w-md bg-white shadow-2xl rounded-xl p-8 border border-green-300 dark:bg-gray-900">
+        <h2 className="text-3xl font-bold text-green-700 mb-6 text-center dark:text-[#35955c]">Create Account</h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
