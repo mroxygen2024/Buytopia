@@ -1,4 +1,4 @@
-# 🛒 Butopia - Modern eCommerce Website
+# 🛒 Buytopia - Modern eCommerce Website
 
 Welcome to **Butopia**, a modern and responsive eCommerce frontend built with **React**, **Vite**, and **Tailwind CSS**. It allows users to browse products, view details, and interact with an elegant UI backed by a live REST API.
 ---
