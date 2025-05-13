@@ -1,6 +1,6 @@
 # 🛒 Buytopia - Modern eCommerce Website
 
-Welcome to **Butopia**, a modern and responsive eCommerce frontend built with **React**, **Vite**, and **Tailwind CSS**. It allows users to browse products, view details, and interact with an elegant UI backed by a live REST API.
+Welcome to **Buytopia**, a modern and responsive eCommerce frontend built with **React**, **Vite**, and **Tailwind CSS**. It allows users to browse products, view details, and interact with an elegant UI backed by a live REST API.
 ---
 
 ## 🚀 Live Demo
@@ -38,7 +38,7 @@ Welcome to **Butopia**, a modern and responsive eCommerce frontend built with **
 
 ```bash
 git clone https://github.com/mroxygen2024/Buytopia.git
-cd Butopia
+cd Buytopia
 ```
 
 ### 2. Install Dependencies
@@ -95,7 +95,7 @@ src/
 Create a `.env` file based on this template:
 
 ```
-# .env.example
+# .env
 VITE_API_BASE_URL=https://ecommerce-backend-tqgh.onrender.com/api/v1
 ```
 
